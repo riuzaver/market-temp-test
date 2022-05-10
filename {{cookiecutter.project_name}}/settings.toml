@@ -1,0 +1,36 @@
+[default]
+    DATABASE_PORT = '5432'
+    DATABASE_USER = 'postgres'
+    DATABASE_PASSWORD = 'postgres'
+    DATABASE_DB = 'ms_db'
+    DATABASE_HOST = 'postgres'
+    DATABASE_ECHO_MODE = false
+
+    LOG_TO_CONSOLE = true
+    LOG_TO_FILE = false
+    LOG_TO_SENTRY = false
+
+    ENABLE_DOCS = true
+
+[development]
+    LOG_TO_SENTRY = true
+
+    DATABASE_PORT = '5432'
+    DATABASE_USER = 'postgres'
+    DATABASE_DB = '{{cookiecutter.database_name}}'
+    DATABASE_HOST = '{{cookiecutter.database_dev_host}}'
+    DATABASE_ECHO_MODE = false
+
+[production]
+    ENABLE_DOCS = false
+    LOG_TO_SENTRY = true
+
+    DATABASE_PORT = '5432'
+    DATABASE_USER = 'postgres'
+    DATABASE_DB = '{{cookiecutter.database_name}}'
+    DATABASE_HOST = '{{cookiecutter.database_prod_host}}'
+    DATABASE_ECHO_MODE = false
+
+[global]
+    SENTRY_URL = "{{cookiecutter.sentry_url}}"
+
