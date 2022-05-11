@@ -6,8 +6,8 @@ from unittest.mock import patch
 from models import Model
 import pytest
 from fastapi import FastAPI
-from graphene_sqlalchemy_core.app import SessionQLApp
-from graphene_sqlalchemy_core.middlewares import LoaderMiddleware
+from alchql.app import SessionQLApp
+from alchql.middlewares import LoaderMiddleware
 from graphql import ASTValidationRule, GraphQLError
 from httpx import AsyncClient
 from pytest_mock import MockerFixture
