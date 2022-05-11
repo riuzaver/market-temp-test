@@ -47,6 +47,7 @@ async def setup_db_for_tests(create_tables: bool = True):
 def sync_setup_db_for_tests(create_tables: bool = True):
     asyncio.run(setup_db_for_tests(create_tables))
 
+
 if __name__ == "__main__":
     import typer
 

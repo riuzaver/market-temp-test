@@ -49,6 +49,15 @@ jobs:
         if: steps.cache-pipenv.outputs.cache-hit != 'true'
         run: |
           pipenv install --deploy --dev
+      - name: Setup db
+        run: |
+          pipenv run python -m tests.setup_test_db
+        env:
+          TEST_DB_HOST: localhost
+          TEST_DB_NAME: postgres
+          TEST_DB_PASS: postgres
+          TEST_DB_PORT: 5432
+          TEST_DB_USER: postgres
       - name: Run test suite
         run: |
           pipenv run pytest
