@@ -1,1 +1,1 @@
-{{cookiecutter.project_name}}/.github/workflows/pytest.yml
+../../{{cookiecutter.project_name}}/.github/workflows/pytest.yml
