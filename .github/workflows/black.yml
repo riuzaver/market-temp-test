@@ -1,14 +1,1 @@
-name: Lint
-
-on: [push, pull_request]
-
-jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: psf/black@stable
-        with:
-          options: "--check --verbose --diff --color"
-          src: "./{{cookiecutter.project_name}}"
-          version: "22.3.0"
+{{cookiecutter.project_name}}/.github/workflows/black.yml
