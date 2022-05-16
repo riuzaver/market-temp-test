@@ -10,5 +10,5 @@ jobs:
       - uses: psf/black@stable
         with:
           options: "--check --verbose --diff --color"
-          src: "./{{cookiecutter.project_name}}"
+          src: "."
           version: "22.3.0"

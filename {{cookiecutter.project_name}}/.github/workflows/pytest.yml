@@ -25,7 +25,7 @@ jobs:
           - 5432:5432
     defaults:
       run:
-        working-directory: ./{{cookiecutter.project_name}}
+        working-directory: .
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2
