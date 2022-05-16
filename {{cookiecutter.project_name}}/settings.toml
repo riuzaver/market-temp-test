@@ -3,7 +3,7 @@
     DATABASE_USER = 'postgres'
     DATABASE_PASSWORD = 'postgres'
     DATABASE_DB = 'ms_db'
-    DATABASE_HOST = 'postgres'
+    DATABASE_HOST = 'localhost'
     DATABASE_ECHO_MODE = false
 
     LOG_TO_CONSOLE = true

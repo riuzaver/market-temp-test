@@ -4,16 +4,19 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+alchql = "*"
 asyncpg = "==0.25"
 dynaconf = "==3.1.7"
 fastapi = "==0.72.0"
-pydantic = { extras = ["email"], version = "*" }
-sentry-sdk = "*"
-uvicorn = { extras = ["standard"], version = "*" }
-SQLAlchemy = { extras = ["asyncio"], version = ">=1.4,<2" }
-starlette-graphene3 = "*"
-python-json-logger = "*"
+graphene-federation3 = "*"
 httpx = "*"
+pydantic = { extras = ["email"], version = "*" }
+python-json-logger = "*"
+sentry-sdk = "*"
+starlette-graphene3 = "*"
+SQLAlchemy = { extras = ["asyncio"], version = ">=1.4,<2" }
+typer = "*"
+uvicorn = { extras = ["standard"], version = "*" }
 
 [dev-packages]
 pytest-asyncio = "==0.15.1"

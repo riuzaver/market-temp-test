@@ -1,11 +1,21 @@
 #!/usr/bin/env python3
-from sqlalchemy import create_engine
+from sqlalchemy.ext.asyncio import create_async_engine
 from sqlalchemy.exc import ProgrammingError
-import models
-from configs import settings as s
-from db import DATABASE_URL
+from sqlalchemy import text
 
-psql_url = f"postgresql://{s.DATABASE_USER}:{s.DATABASE_PASSWORD}@{s.DATABASE_HOST}:{s.DATABASE_PORT}"
+import asyncio
+
+import models
+from config import settings as s
+from db import db_url
+
+psql_url = (
+    f"postgresql+asyncpg://"
+    f"{s.DATABASE_USER}:"
+    f"{s.DATABASE_PASSWORD}@"
+    f"{s.DATABASE_HOST}:"
+    f"{s.DATABASE_PORT}"
+)
 
 
 def check_test_db():
@@ -14,23 +24,31 @@ def check_test_db():
         raise Exception("Use local database only!")
 
 
-def setup_db_for_tests(create_tables: bool = True):
+async def setup_db_for_tests(create_tables: bool = True):
     check_test_db()
-    e = create_engine(psql_url)
-    conn = e.connect()
-    conn.execute("commit")
-    conn.execute(f"drop database if exists {s.DATABASE_DB}")
-    conn.execute("commit")
-    conn.execute(f"create database {s.DATABASE_DB}")
-    conn.execute("commit")
-    conn.close()
+    e = create_async_engine(psql_url)
+    async with e.begin() as conn:
+        await conn.execute(text("commit"))
+        await conn.execute(text(f"drop database if exists {s.DATABASE_DB}"))
+        await conn.execute(text("commit"))
+        await conn.execute(text(f"create database {s.DATABASE_DB}"))
+        await conn.execute(text("commit"))
 
-    e = create_engine(DATABASE_URL)
+    await e.dispose()
+
+    e = create_async_engine(db_url)
     if create_tables:
-        models.Model.metadata.create_all(e)
+        async with e.begin() as conn:
+            await conn.run_sync(models.Model.metadata.create_all)
+
+    await e.dispose()
+
+
+def sync_setup_db_for_tests(create_tables: bool = True):
+    asyncio.run(setup_db_for_tests(create_tables))
 
 
 if __name__ == "__main__":
     import typer
 
-    typer.run(setup_db_for_tests)
+    typer.run(sync_setup_db_for_tests)

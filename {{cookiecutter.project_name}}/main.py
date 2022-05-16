@@ -1,7 +1,7 @@
 import uvicorn as uvicorn
 from fastapi import FastAPI
-from graphene_sqlalchemy_core.app import SessionQLApp
-from graphene_sqlalchemy_core.middlewares import DebugMiddleware, LoaderMiddleware
+from alchql.app import SessionQLApp
+from alchql.middlewares import DebugMiddleware, LoaderMiddleware
 from sentry_sdk.integrations.asgi import SentryAsgiMiddleware
 from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import RedirectResponse
@@ -9,8 +9,8 @@ from starlette.responses import RedirectResponse
 from api.root import root_router
 from config import log, sentry_sdk, settings  # noqa: F401
 from db import persistent_engine
-from gql.auth_middleware import AuthMiddleware
 from gql.schema import schema
+import models as m
 
 docs_conf = {}
 if settings.ENABLE_DOCS:
@@ -41,7 +41,7 @@ app.add_route(
     SessionQLApp(
         schema=schema,
         middleware=[
-            LoaderMiddleware(),
+            LoaderMiddleware(m.Model.registry.mappers),
             DebugMiddleware(log),
         ],
         engine=persistent_engine,
