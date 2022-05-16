@@ -6,7 +6,7 @@ from sqlalchemy.ext.declarative import declarative_base
 Model = declarative_base()
 
 
-class RecordTimestampFields(object):
+class RecordTimestampFields:
     """
     Collection of record edition timestamps
     They are common for many models
