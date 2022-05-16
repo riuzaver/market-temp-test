@@ -1,0 +1,10 @@
+{
+  "group_name": "ms-template",
+  "project_name": "some-ms",
+  "description": "microservice project",
+  "version": "0.0.1",
+  "sentry_url": "",
+  "database_name": "",
+  "database_dev_host": "",
+  "database_prod_host": ""
+}
