@@ -22,3 +22,7 @@ pipenv install --dev
 ```
 python -m pytest
 ```
+6. Run ms
+```
+uvicorn api.root:root_router --reload
+```
