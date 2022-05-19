@@ -14,7 +14,7 @@ git clone git@github.com:startupmillio/market-template-ms.git
 ```
 cookiecutter market-template-ms/
 ```
-4. Create pipenv developing environment
+4. Create pipenv developing environment running command inside created folder
 ```
 pipenv install --dev
 ```
