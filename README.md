@@ -2,27 +2,28 @@
 ### Preparation
 - Install [pipenv](https://github.com/pypa/pipenv)
 - Install [cookiecutter](https://cookiecutter.readthedocs.io/)
+- Install [cruft](https://pypi.org/project/cruft/)
 - Install PostgreSQL
 - Install Python 3.10
 ### Creating ms from template
-1. Clone repository
+1. Execute and fill in required values
 ```
-git clone git@github.com:startupmillio/market-template-ms.git
+cruft create git+ssh://git@github.com/startupmillio/market-template-ms
 ```
-2. Create database for ms
-3. Execute and fill in required values
-```
-cookiecutter market-template-ms/
-```
-4. Create pipenv developing environment running command inside created folder
+2. Create pipenv developing environment running command inside created folder
 ```
 pipenv install --dev
 ```
-5. Run tests
+3. Create `.secrets.toml` and add it to gitignore. Inside `.secrets.toml` set your local environment variables. 
+4. Create database with
 ```
-python -m pytest
+python -m tests.setup_test_db
 ```
-6. Run ms
+4. Run tests
 ```
-uvicorn api.root:root_router --reload
+py.test
+```
+5. Run ms
+```
+uvicorn main:app --reload
 ```
