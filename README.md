@@ -14,7 +14,7 @@ cruft create git+ssh://git@github.com/startupmillio/market-template-ms
 ```
 pipenv install --dev
 ```
-3. Create `.secrets.toml` and add it to gitignore. Inside `.secrets.toml` set your local environment variables. 
+3. Inside `.secrets.toml` set your local environment variables
 4. Create database with
 ```
 python -m tests.setup_test_db
@@ -27,3 +27,14 @@ py.test
 ```
 uvicorn main:app --reload
 ```
+### Migrations
+For creating migration use [alembic](https://alembic.sqlalchemy.org/en/latest/tutorial.html) command (only for models inherited from base class Model)
+```
+alembic revision --autogenerate -m "Useful migration"
+```
+And to migrate to the most recent
+```
+alembic upgrade head
+```
+### Template update
+Checking update of template with `cruft check` and updating with `cruft update`
