@@ -37,4 +37,4 @@ And to migrate to the most recent
 alembic upgrade head
 ```
 ### Template update
-Checking update of template with `cruft check` and updating with `cruft update`
+Check for updates of template with `cruft check` and update with `cruft update`
