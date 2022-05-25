@@ -16,4 +16,6 @@ jobs:
           path: .github/actions/pytest
           token: ${{ secrets.PRIVATE_ACCESS_TOKEN }}
       - name: LS
-        run: ls -la
+        run: |
+        cd .github
+        ls -la 
