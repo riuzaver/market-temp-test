@@ -18,3 +18,6 @@ jobs:
 
       - name: Black test action
         uses: ./.github/actions/black
+        
+      - name: LS LA
+        run: ls -la
