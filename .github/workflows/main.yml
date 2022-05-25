@@ -15,3 +15,5 @@ jobs:
           repository: startupmillio/market-ci
           path: .github/actions/pytest
           token: ${{ secrets.PRIVATE_ACCESS_TOKEN }}
+      - name: LS
+        run: ls -la
