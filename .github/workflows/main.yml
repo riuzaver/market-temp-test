@@ -10,5 +10,5 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Black test action
-        uses: riuzaver/market-ci/.github/actions/black@main
+        uses: riuzaver/market-ci/.github/workflows/black.yml@main
 
