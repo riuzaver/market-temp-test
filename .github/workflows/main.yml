@@ -16,5 +16,5 @@ jobs:
           path: ./
           token: ${{ secrets.PRIVATE_ACCESS_TOKEN }}
 
-      - name: Python test action
-        uses: ./.github/actions/pytest
+      - name: Black test action
+        uses: ./.github/actions/black
