@@ -18,5 +18,5 @@ jobs:
       - name: LS
         run: |
           ls -la
-          cd .github
+          cd .github\actions
           ls -la
