@@ -3,12 +3,12 @@ name: Python Tests
 on: [push]
 
 jobs:
-  build:
+  Clone:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
+  Tests:
+    uses: riuzaver/market-ci/.github/workflows/black.yml@main
 
-      - name: Black test action
-        uses: riuzaver/market-ci/.github/workflows/black.yml@main
+      
 
