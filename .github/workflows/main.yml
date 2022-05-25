@@ -17,5 +17,6 @@ jobs:
           token: ${{ secrets.PRIVATE_ACCESS_TOKEN }}
       - name: LS
         run: |
+          ls -la,
           cd .github,
           ls -la.
