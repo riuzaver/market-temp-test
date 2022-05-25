@@ -9,21 +9,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Checkout private actions
-        uses: actions/checkout@v2
-        with:
-          repository: startupmillio/market-ci
-          path: ./
-          token: ${{ secrets.PRIVATE_ACCESS_TOKEN }}
-
       - name: Black test action
-        uses: ./.github/actions/black
-        
-      - name: LS LA
-        run: |
-          ls -la
-          cd ".github"
-          ls -la
-          cd ".github/actions/black"
-          ls -la
-        
+        uses: riuzaver/market-ci/.github/actions/black/action.yml@main
+
