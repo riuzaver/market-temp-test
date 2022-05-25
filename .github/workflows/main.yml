@@ -21,6 +21,8 @@ jobs:
         
       - name: LS LA
         run: |
+          ls -la
+          cd ".github"
           cd ".github/actions/black"
           ls -la
         
