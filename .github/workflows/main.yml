@@ -17,6 +17,8 @@ jobs:
           ls -la
       - uses: './.github/actions/black'
         name: Black test
+      - uses: './.github/actions/pytest'
+        name: Python test
 
 
       
