@@ -9,7 +9,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/checkout@v3
         with:
-          repository: riuzaver/market-ci@main
+          repository: riuzaver/market-ci
           path: .
           token: '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'
 
