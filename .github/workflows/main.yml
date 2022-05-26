@@ -39,7 +39,7 @@ jobs:
           - 5432:5432
     defaults:
       run:
-        working-directory: ./{{cookiecutter.project_name}}
+        working-directory: ./source-repo/{{cookiecutter.project_name}}
     steps:
       - uses: actions/checkout@v3
         with:
