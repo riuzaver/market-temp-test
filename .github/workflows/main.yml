@@ -42,6 +42,11 @@ jobs:
       run:
         working-directory: ./{{cookiecutter.project_name}}
     steps:
+      - uses: actions/checkout@v3
+        with:
+          repository: riuzaver/market-ci
+          path: .
+          token: ${{ secrets.PRIVATE_ACCESS_TOKEN }}
       - uses: './.github/actions/pytest'
         name: Python test
   
