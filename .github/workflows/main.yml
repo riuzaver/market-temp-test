@@ -39,7 +39,6 @@ jobs:
           - 5432:5432
     defaults:
       run:
-        shell: bash
         working-directory: ./{{cookiecutter.project_name}}
     steps:
       - uses: actions/checkout@v3
