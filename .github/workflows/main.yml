@@ -12,6 +12,9 @@ jobs:
           repository: riuzaver/market-ci
           path: .
           token: ${{ secrets.PRIVATE_ACCESS_TOKEN }}
+      - run: |
+          cd ".github/actions/black"
+          ls -la
       - uses: './.github/actions/black'
         name: Black test
 
