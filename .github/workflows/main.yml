@@ -12,6 +12,8 @@ jobs:
           repository: riuzaver/market-ci
           path: .
           token: ${{ secrets.PRIVATE_ACCESS_TOKEN }}
+      - uses: .github/workflows/black/black.yml@main
+        name: Black test
 
 
       
