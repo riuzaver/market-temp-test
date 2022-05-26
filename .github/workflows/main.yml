@@ -7,8 +7,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-  Tests:
-    uses: riuzaver/market-ci/.github/workflows/black.yml@main
+      - uses: actions/checkout@v3
+        with:
+          repository: riuzaver/market-ci@main
+          path: .
+          token: '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'
+
 
       
 
