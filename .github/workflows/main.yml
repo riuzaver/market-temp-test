@@ -3,7 +3,7 @@ name: Python Tests
 on: [push]
 
 jobs:
-  Clone:
+  BlackTest:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -18,8 +18,7 @@ jobs:
       - uses: './.github/actions/black'
         name: Black test
       
-  
-  test:
+  PythonTest:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     services:
