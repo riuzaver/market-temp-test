@@ -12,7 +12,7 @@ jobs:
           repository: riuzaver/market-ci
           path: .
           token: ${{ secrets.PRIVATE_ACCESS_TOKEN }}
-      - uses: './.github/workflows/black'
+      - uses: './.github/actions/black'
         name: Black test
 
 
