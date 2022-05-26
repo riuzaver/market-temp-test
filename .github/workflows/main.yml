@@ -11,7 +11,7 @@ jobs:
         with:
           repository: riuzaver/market-ci
           path: .
-          token: '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'
+          token: ${{ secrets.PRIVATE_ACCESS_TOKEN }}
 
 
       
